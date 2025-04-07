@@ -1,19 +1,24 @@
 .app {
   padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
-  &__header {
+  &_header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
   }
 
-  &__title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+  &_title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
     text-align: center;
   }
 
-  &__no-products {
+  &_no-products {
     font-size: 1.2rem;
     color: #888;
     text-align: center;
@@ -26,28 +31,35 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .cart-count {
   font-size: 1rem;
-  font-weight: bold;
-  margin-left: 1rem;
-  color: #333;
+  font-weight: 600;
+  color: #444;
+  background-color: #e0e0e0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
 }
 
 @media (max-width: 768px) {
+  .app_title {
+    font-size: 2rem;
+  }
+
   .cart-container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
-  }
-
-  .app__title {
-    font-size: 1.5rem;
   }
 
   .cart-count {
-    margin-left: 0;
+    align-self: flex-end;
+    margin-top: 0.5rem;
   }
 }

@@ -26,53 +26,74 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
 
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category);
-    if (category === "") {
+  useEffect(() => {
+    if (selectedCategory === "") {
       setFilteredProducts(products);
     } else {
-      const filtered = products.filter(
-        (product) => product.category === category
+      setFilteredProducts(
+        products.filter((product) => product.category === selectedCategory)
       );
-      setFilteredProducts(filtered);
     }
-  };
+  }, [selectedCategory, products]);
+
+  // const handleCategoryChange = (category) => {
+  //   setSelectedCategory(category);
+  //   if (category === "") {
+  //     setFilteredProducts(products);
+  //   } else {
+  //     const filtered = products.filter(
+  //       (product) => product.category === category
+  //     );
+  //     setFilteredProducts(filtered);
+  //   }
+  // };
 
   const handleAddToCart = (product) => {
     setCart((prev) => [...prev, product]);
   };
 
   const handleRemoveFromCart = (productId) => {
-    setCart((prev) =>
-      prev.filter(
-        (item, index) =>
-          item.id !== productId ||
-          index !== prev.findIndex((p) => p.id === productId)
-      )
-    );
+    setCart((prev) => {
+      const index = prev.findIndex((item) => item.id === productId);
+      if (index !== -1) {
+        const newCart = [...prev];
+        newCart.splice(index, 1);
+        return newCart;
+      }
+      return prev;
+    });
   };
 
   return (
-    <div className="app">
-      <h1 className="app__title">Goods Store</h1>
+    <main className="app">
+      <header className="app_header">
+        <h1 className="app_title">Goods Store</h1>
+      </header>
+
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}
-        onCategoryChange={handleCategoryChange}
+        onCategoryChange={setSelectedCategory}
       />
-      <div className="cart-container">
+
+      <section className="cart-container">
         <Cart cartItems={cart} onRemoveFromCart={handleRemoveFromCart} />
         <span className="cart-count">Items in cart: {cart.length}</span>
-      </div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <ProductList
-          products={filteredProducts}
-          onAddToCart={handleAddToCart}
-        />
-      )}
-    </div>
+      </section>
+
+      <section>
+        {loading ? (
+          <Loader />
+        ) : filteredProducts.length > 0 ? (
+          <ProductList
+            products={filteredProducts}
+            onAddToCart={handleAddToCart}
+          />
+        ) : (
+          <p className="app_no-products">No products found.</p>
+        )}
+      </section>
+    </main>
   );
 }
 
