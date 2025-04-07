@@ -42,15 +42,28 @@ function App() {
     setCart((prev) => [...prev, product]);
   };
 
+  const handleRemoveFromCart = (productId) => {
+    setCart((prev) =>
+      prev.filter(
+        (item, index) =>
+          item.id !== productId ||
+          index !== prev.findIndex((p) => p.id === productId)
+      )
+    );
+  };
+
   return (
     <div className="app">
-      <h1 className="app__title">Магазин товарів</h1>
+      <h1 className="app__title">Goods Store</h1>
       <Filter
         categories={categories}
         selectedCategory={selectedCategory}
         onCategoryChange={handleCategoryChange}
       />
-      <Cart cartItems={cart} />
+      <div className="cart-container">
+        <Cart cartItems={cart} onRemoveFromCart={handleRemoveFromCart} />
+        <span className="cart-count">Items in cart: {cart.length}</span>
+      </div>
       {loading ? (
         <Loader />
       ) : (

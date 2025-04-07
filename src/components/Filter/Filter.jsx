@@ -7,7 +7,7 @@ const Filter = ({ categories, selectedCategory, onCategoryChange }) => (
       className={selectedCategory === "" ? "active" : ""}
       onClick={() => onCategoryChange("")}
     >
-      Усі
+      All
     </button>
     {categories.map((cat) => (
       <button

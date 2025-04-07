@@ -1,31 +1,52 @@
 .product-card {
   border: 1px solid #ddd;
+  border-radius: 12px;
   padding: 1rem;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
-  &__image {
-    max-height: 200px;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  img {
+    height: 200px;
     object-fit: contain;
     margin-bottom: 1rem;
   }
-  &__title {
-    font-size: 1rem;
+
+  h3 {
+    font-size: 1.1rem;
     margin-bottom: 0.5rem;
   }
-  &__category {
+
+  p {
     font-size: 0.9rem;
     color: gray;
+    margin-bottom: 0.5rem;
   }
-  &__price {
-    font-weight: bold;
+
+  strong {
+    font-size: 1rem;
+    margin-bottom: 1rem;
   }
-  &__button {
-    margin-top: auto;
-    padding: 0.5rem;
-    background: #000;
+
+  button {
+    padding: 0.5rem 1rem;
+    background-color: #000;
     color: #fff;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #333;
+    }
   }
 }

@@ -7,7 +7,7 @@ const ProductCard = ({ product, onAddToCart }) => (
     <h3>{product.title}</h3>
     <p>{product.category}</p>
     <strong>${product.price}</strong>
-    <button onClick={() => onAddToCart(product)}>Додати до кошика</button>
+    <button onClick={() => onAddToCart(product)}>Add to cart</button>
   </div>
 );
 
