@@ -22,7 +22,7 @@ function App() {
         const uniqueCategories = [...new Set(data.map((p) => p.category))];
         setCategories(uniqueCategories);
       })
-      .catch((error) => console.error("Помилка при завантаженні:", error))
+      .catch((error) => console.error("Error while loading:", error))
       .finally(() => setLoading(false));
   }, []);
 
