@@ -50,7 +50,7 @@ function App() {
         selectedCategory={selectedCategory}
         onCategoryChange={handleCategoryChange}
       />
-
+      <Cart cartItems={cart} />
       {loading ? (
         <Loader />
       ) : (
@@ -59,8 +59,6 @@ function App() {
           onAddToCart={handleAddToCart}
         />
       )}
-
-      <Cart cartItems={cart} />
     </div>
   );
 }

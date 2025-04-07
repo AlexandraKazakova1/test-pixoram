@@ -1,10 +1,13 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  padding: 1rem;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-size: 2rem;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

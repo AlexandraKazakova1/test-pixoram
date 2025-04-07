@@ -1,0 +1,31 @@
+.product-card {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  &__image {
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+  &__title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  &__category {
+    font-size: 0.9rem;
+    color: gray;
+  }
+  &__price {
+    font-weight: bold;
+  }
+  &__button {
+    margin-top: auto;
+    padding: 0.5rem;
+    background: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+}
